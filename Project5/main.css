@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+ body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background-color:#fff;
+    position: relative;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: #ffc107;
+    --background-color : black;
+}
+/* ======================SideBar======================= */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background: var(--background-color);
+    transition: all 0.3s linear;
+    transform: translateX(-300px);
+    opacity: 0;
+}
+.active{
+    width: 240px;
+    padding: 6px 14px;
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.sidebar .logo{
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items:center;
+    opacity: 1; 
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* ================SearchBox============== */
+.search-box input{
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 40px;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+.search-box i {
+    margin-right: 16px;
+    color: black;
+    top: 8px;
+    z-index: 10;
+    position:absolute;
+    color: var(--text-color);
+}
+/* ===================================== */
+.logo i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.logo .name{
+    font-size: 1rem;
+    font-weight:900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.nav-list{
+    margin-top: 30px;
+    white-space: nowrap;
+}
+.nav-list li {
+    color: var(--text-color);
+    list-style-type: none;
+    margin:0 10px;
+    position: relative;
+    width: 100%;
+    height: 45px;
+}
+.nav-list span:hover{
+    color: var(--text-color);
+    padding-left: 10px;
+}
+.nav-list li a {
+    text-decoration: none;
+}
+.nav-list li a span{
+    font-size: 1rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: all 0.3s linear;
+}
+ .nav-list li a i{
+    margin-right: 30px;
+    color :var(--text-color);
+    text-align: center;
+}
+/* =================Profile============== */
+.profile-content img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+.profile-content{
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    font-size: 0.7rem;
+    width: 100%;
+    font-weight: 900;
+}
+.profile-content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+}
+.profile-detail{
+    display: flex;
+    align-items: center;
+}
+.profile-content .name{
+    color: var(--text-color);
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+.profile-content i{
+    position: absolute;
+    bottom: 10px;
+    right:20px;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* ===================== Main content================== */
+.main-content{
+    position: absolute;
+    height: 100%;
+    width: calc(100%-70px);
+    left: 70px;
+    transition: all 0.3s linear;
+    margin-left: 30px;
+}
+.active ~ .main-content{
+    left: 240px;
+    width: calc(100%-240px);
+}
+
+/* ========================Menu======================== */
+.navbar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content:space-between;
+    padding: 0 50px;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+
+.list-item{
+    list-style-type: none;
+    display: flex;
+}
+.list-item .item{
+    margin-left: 20px;
+}
+.navbar img{
+    width:50px;
+    height: 50px;
+}
+.navbar .nav-btn{
+    position: absolute;
+    right:10px ;
+    top: 25px;
+    transform:translateY(-50%)
+}
+@media (max-width:1024px){
+    .menu{
+        display: none;
+    }
+    .navbar .nav-btn{
+        right:20px ;
+        top: 25px;
+        transform:translateY(-50%);
+        font-size:1.6rem;
+    }
+}
+@media (min-width:1024px){
+    .nav-btn{
+        display:none;
+    }
+    .sidebar{
+        display: none;
+    }
+} 

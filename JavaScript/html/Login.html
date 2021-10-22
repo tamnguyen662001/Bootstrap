@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | JS </title>
+    <link rel="stylesheet" href="../css/Login.css">
+    
+</head>
+<body>
+    <div class="container">
+
+        <form action="" method="POST" class="form" id="form-1">
+          <h3 class="heading ">SIGN IN</h3>
+  
+          <div class="spacer"></div>
+  
+          <div class="form-group">
+            <label for="fullname" class="form-label">Username</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Enter username" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="text" placeholder="ex: email@domain.com" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter password" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <div class="form-group">
+            <label for="password_confirmation" class="form-label">Password again</label>
+            <input id="password_confirmation" name="password_confirmation" placeholder="Enter password again" type="password" class="form-control">
+            <span class="form-message"></span>
+          </div>
+          <button class="form-submit btn color-1" >Sign in</button>
+        </form>
+        </div>
+    <script src="../js/Login.js"></script>
+
+      
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+          // Mong muốn của chúng ta
+          Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isRequired('#fullname', 'Please enter your full name'),
+              Validator.isEmail('#email'),
+              Validator.minLength('#password', 6),
+              Validator.isRequired('#password_confirmation'),
+              Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#form-1 #password').value;
+              }, 'Incorrect re-entry password')
+            ],
+            onSubmit: function (data) {
+              // Call API
+              console.log(data);
+            }
+          });
+  
+  
+          Validator({
+            form: '#form-2',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isEmail('#email'),
+              Validator.minLength('#password', 6),
+            ],
+            onSubmit: function (data) {
+              // Call API
+              console.log(data);
+            }
+          });
+        });
+  
+      </script>
+</body>
+</html>

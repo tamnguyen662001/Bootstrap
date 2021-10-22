@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | JS </title>
+    <link rel="stylesheet" href="../css/Product management.css">
+    <link rel="icon" href="../OIF.jpg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-4 bg-dark border-bottom shadow-sm">
+        <h5 class="my-0  mr-md-auto font-weight-normal text-light">BOOTSTRAP</h5>
+
+
+        <button type="button" class="btn btn-outline-light signin" data-toggle="modal" data-target="#exampleModalCenter">
+            Sign in
+        </button>
+
+
+
+
+
+
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="heading text-center">SIGN IN</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+
+                            <form class="form" id="form-1">
+                                <div class="spacer"></div>
+
+                                <div class="form-group">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input id="username" name="username" type="text" placeholder="Enter username"
+                                        class="form-control">
+                                    <small class="form-message"></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input id="email" name="email" type="text" placeholder="ex: email@domain.com"
+                                        class="form-control">
+                                    <small class="form-message"></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input id="password" name="password" type="password" placeholder="Enter password"
+                                        class="form-control">
+                                    <small class="form-message"></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password2" class="form-label">Password confirm</label>
+                                    <input id="password2" name="password2" placeholder="Enter password again"
+                                        type="password" class="form-control">
+                                    <small class="form-message"></small>
+                                </div>
+                              
+
+
+
+                               <div class="justify-content-between">
+                                <button class="btn btn-success w-100 signin" id="submit">Login Now</button>
+                                <div class="a">
+                                    <h6 class="line">
+                                        <span class="line-text text-muted">or</span> 
+                                    </h6>
+                                </div>
+                                <button class="btn btn-danger w-100 signin" id="regiter">Register A New Acount</button>
+                               </div>
+                            </form>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+        <div id="toast"></div>
+        <div class="col-10 mx-auto">
+            <div class="panel-heading">
+                <h3 class="text-center my-4">Product management</h3>
+            </div>
+
+
+            <div class="panel-body">
+                <div class="form-group">
+                    <h6>Customer name </h6>
+                    <input type="number" value="-1" id="index" hidden="true">
+                    <input type="text" class="form-control" required placeholder="Enter your name" id="product-name">
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <h6>Manufacturer </h6>
+                            <select type="text" class="form-control" placeholder="Enter name of product"
+                                id="manufacturer" onchange="changeCategory(),changePrice()">
+                                <option value="">- Choose -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Category</h6>
+                            <select type="text" class="form-control" placeholder="Iphone" id="category">
+                                <option value="">- Choose -</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Price </h6>
+                            <select type="text" class="form-control" placeholder="$1500" id="price"
+                                onkeyup="updatePrice()">
+                                <option value="">- Choose -</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Quantity </h6>
+                            <input type="number" class="form-control" id="quantity" onkeyup='updatePrice()'>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  text-success ">
+                            <h6>Total </h6>
+                            <input type="text" class="form-control font-weight-bold pr-auto" id="total" disabled="true">
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group text-success">
+                            <h6>Add, edit, delete data by Javascript </h6>
+                            <div class="btn btn-success" id="update" onclick="addProduct()">Add</div>
+                            <div class="btn btn-info" id='update1' onclick="update()">Update </div>
+                            <div class="btn btn-dark " onclick="reset()">Reset</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <h3 class="text-center my-4"> Order information</h3>
+                    <table class="table table-bordered mt-3 text-center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#No. </th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Manfacturer</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Total</th>
+                                <th colspan="2">Update</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="result">
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Js/Product management.js"></script>
+</body>
+
+</html>
